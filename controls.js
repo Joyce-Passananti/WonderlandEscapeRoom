@@ -44,7 +44,7 @@ AFRAME.registerComponent("stump-interact", {
   
       stump.addEventListener("click", function () {
           camera.setAttribute("animation", "property: position; to: 0 85 20; dur: 2500");
-          camera.setAttribute("animation__2", "property: position; from: 0 85 20; to: 0 10 35; dur: 8000; delay: 2000");
+          camera.setAttribute("animation__2", "property: position; from: 0 85 20; to: 0 15 35; dur: 8000; delay: 2000");
 
           chairs.setAttribute("animation", "property: position; to: 0 4 0; dur: 6000; delay: 3000");
           chairs.setAttribute("animation__2", "property: rotation; to: 24 360 23; loop: true; dur: 3000; ");
@@ -76,7 +76,7 @@ AFRAME.registerComponent("stump-interact", {
           potion.setAttribute("visible", "false");
           isSmall = true;
 
-          camera.setAttribute("animation", "property: position; to: 0 0 .2 45; dur: 50");
+          camera.setAttribute("animation", "property: position; to: 0 .2 45; dur: 50");
           camera.setAttribute("animation__2", "property: rotation; to: 10 0 0; dur: 50; delay: 0");
 
           chairs.setAttribute("animation", "property: scale; to: 1 4 1; dur: 200; delay: 0");
@@ -109,6 +109,43 @@ AFRAME.registerComponent("stump-interact", {
     }
   });
 
+  AFRAME.registerComponent("cake-interact", {
+    init: function () {
+      var data = this.data;
+      var sceneEl = document.querySelector("a-scene");
+      var cake = sceneEl.querySelector("#cake");
+      var camera = document.querySelector("#rig");
+      var chairs = document.querySelector("#chairs");
+      var table = document.querySelector("#table");      
+    //   var lose = document.querySelector("#lose");
+      var tears = document.querySelector("#tears");
+  
+      cake.addEventListener("mouseenter", function () {
+          cake.setAttribute("animation", "property: scale; to: .02 .02 .02; dur: 200");
+      });
+  
+      cake.addEventListener("mouseleave", function () {
+          cake.setAttribute("animation", "property: scale; to: .01 .01 .01; dur: 200");
+      });
+  
+      cake.addEventListener("click", function () {
+          cake.setAttribute("visible", "false");
+
+          camera.setAttribute("animation", "property: position; to: 0 70 45; dur: 50");
+          camera.setAttribute("animation__2", "property: rotation; to: -40 0 0; dur: 50; delay: 0");
+
+          chairs.setAttribute("animation", "property: scale; to: 1 .5 1; dur: 200; delay: 0");
+          table.setAttribute("animation", "property: scale; to: 2 1 2; dur: 200; delay: 0");
+
+          tears.setAttribute("animation", "property: position; to: 0 30 0; dur: 30000; delay: 0");
+          chairs.setAttribute("animation__2", "property: position; to: 0 50 0; loop: false; dur: 40000; delay: 2000");
+          table.setAttribute("animation__2", "property: position; to: 0 45 0; dur: 40000; delay: 2000");
+
+        //   lose.setAttribute("visible", "true");
+      });
+    }
+  });
+
   
   AFRAME.registerComponent("door-interact", {
     init: function () {
@@ -117,6 +154,7 @@ AFRAME.registerComponent("stump-interact", {
       var door = sceneEl.querySelector("#door");
       var keyhole = sceneEl.querySelector("#keyhole");
       var camera = document.querySelector("#rig");
+    //   var win = document.querySelector("#win");
   
       door.addEventListener("mouseenter", function () {
         keyhole.setAttribute("animation", "property: rotation; from: 0 0 20; to: 0 0 -20; dir: alternate; loop: true; dur: 300; ");
@@ -134,7 +172,9 @@ AFRAME.registerComponent("stump-interact", {
       door.addEventListener("click", function () {
           if(hasKey && isSmall) {
             console.log("yay u win a prize");
-            camera.setAttribute("animation", "property: position; to: 0 90 20; dur: 1000");
+            // win.setAttribute("visible", "true");
+            camera.setAttribute("animation", "property: position; to: 0 90 20; dur: 1000; delay: 1000");
+            // camera.setAttribute("animation__2", "property: rotation; to: 0 270 0; dur: 10; delay: 4000");
           }
           else
             console.log("no")
