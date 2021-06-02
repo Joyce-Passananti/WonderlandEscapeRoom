@@ -1,0 +1,11 @@
+Model Information:
+* title:	Marble Tile Floors
+* source:	https://sketchfab.com/3d-models/marble-tile-floors-9317c3a26b00470d9a0e3cb000607a87
+* author:	berg.holmgren (https://sketchfab.com/berg.holmgren)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Marble Tile Floors" (https://sketchfab.com/3d-models/marble-tile-floors-9317c3a26b00470d9a0e3cb000607a87) by berg.holmgren (https://sketchfab.com/berg.holmgren) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

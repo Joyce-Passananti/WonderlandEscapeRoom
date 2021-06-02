@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <!-- <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@7ee6705aec750da4ed16e39605ff66e07d1f7b45/dist/aframe-master.min.js"></script>
+    <script src="controls.js"></script>
+
+  </head>
+  <body>
+
+    <a-scene background="color: #ECEAAA">
+        
+        <a-assets>
+            <img id="sky" src="https://melissafairman.com/wp-content/uploads/2018/07/dan-gold-366498-unsplash-600x400.jpg">
+            <img id="cover-img" src="assets/cover.jpg">
+            <a-asset-item id="wall-gltf" src="assets/woodwall/scene.gltf"></a-asset-item>
+            <a-asset-item id="tile-gltf" src="assets/tile/scene.gltf"></a-asset-item>
+            <a-asset-item id="door-gltf" src="assets/old_door/scene.gltf"></a-asset-item>
+            <a-asset-item id="keyhole-gltf" src="assets/keyhole/scene.gltf"></a-asset-item>
+
+
+            <a-asset-item id="table-gltf" src="assets/table/scene.gltf"></a-asset-item>
+            <a-asset-item id="bottle-gltf" src="assets/bottle/scene.gltf"></a-asset-item>
+            <a-asset-item id="key-gltf" src="assets/key/scene.gltf"></a-asset-item>
+
+            <a-asset-item id="chair-gltf" src="assets/wooden_chair/scene.gltf"></a-asset-item>
+            <a-asset-item id="chair2-gltf" src="assets/rustic_chair/scene.gltf"></a-asset-item>
+            
+            <a-asset-item id="painting-gltf" src="assets/frame/scene.gltf"></a-asset-item>
+            <a-asset-item id="painting2-gltf" src="assets/painting2/scene.gltf"></a-asset-item>
+
+            <a-asset-item id="stump-gltf" src="assets/tree_stump/scene.gltf"></a-asset-item>
+            <a-asset-item id="tree-gltf" src="assets/old_tree/scene.gltf"></a-asset-item>
+            <a-asset-item id="rabbit-gltf" src="assets/rabbit/scene.gltf"></a-asset-item>
+
+
+            <a-asset-item id="flower-gltf" src="assets/flower/scene.gltf"></a-asset-item>
+            <a-asset-item id="flowers-gltf" src="assets/flowers/scene.gltf"></a-asset-item>
+            <a-asset-item id="flower_patch-gltf" src="assets/flower_patch/scene.gltf"></a-asset-item>
+            <a-asset-item id="grass-gltf" src="assets/grass/scene.gltf"></a-asset-item>
+
+        </a-assets>
+
+        <a-sky src="#sky"></a-sky>
+        <a-plane id="cover" color="white" height="1000" width="4000" position="0 102 50" >
+            <a-image src='#cover-img' positon="0 0 1" scale="20 20 20"> </a-image>
+        </a-plane>
+
+        <!-- start button -->
+        <a-plane id="start" color="purple" height="2" width="6" position="0 98 52" visible="false" 
+            animation="property: visible; to: true; delay: 15000"
+            start-interact=""
+            >
+            <a-entity id="startButtonLabel" mixin="font"
+                text="value: START; color: white; align: center; width: 3; wrapCount: 12; opacity: 0"
+                position="0 0 0.01"
+                animation="property: components.text.material.uniforms.opacity.value; from: 0; to: 1; dur: 1000; delay: 15000"
+            ></a-entity>
+        </a-plane>
+
+        <a-entity id="wall" gltf-model="#wall-gltf" position="0 -0.5 0" scale="1 1 1" rotation="0 90 0"></a-entity>
+        <a-entity id="floor" gltf-model="#tile-gltf" position="0 0 0" scale="9 9 9" rotation="0 0 0"></a-entity>
+        <a-entity id="door" door-interact="" gltf-model="#door-gltf" position="0 5 -34.5" scale="4 4 4" rotation="0 -90 0"></a-entity>
+        <a-entity id="keyhole" gltf-model="#keyhole-gltf" position="-1.4 4.5 -34.4" scale=".04 .04 .04" rotation="0 0 0"></a-entity>
+
+        <a-entity id="table" gltf-model="#table-gltf" position="0 .5 4" scale="2 2 2" rotation="0 0 0"></a-entity>
+        <a-entity id="bottle" potion-interact="" gltf-model="#bottle-gltf" position="1 7 5" scale=".2 .2 .2" rotation="0 0 0"></a-entity>
+        <a-entity id="key" key-interact="" gltf-model="#key-gltf" position="-1 7 5" scale=".004 .004 .004" rotation="0 90 90"></a-entity>
+
+        <a-entity id="chairs" position="0 75 0">
+            <a-entity id="chair" gltf-model="#chair-gltf" position="-13 1 -4" scale="5 5 5"></a-entity>
+            <a-entity id="chair2" gltf-model="#chair2-gltf" position="10 0 2" scale="5 5 5"></a-entity>
+        </a-entity>
+
+        <a-enitiy id="paintings" position="0 80 0">
+            <a-entity id="painting" gltf-model="#painting-gltf" position="0 20 0" scale="500 500 500"></a-entity>
+            <a-entity id="painting2" gltf-model="#painting2-gltf" position="0 20 0" scale="500 500 500" rotation="0 90 0"></a-entity>
+        </a-enitiy>
+
+        <a-entity id="grass" gltf-model="#grass-gltf" position="0 80 23" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+        <a-entity id="grass1" gltf-model="#grass-gltf" position="50 80 23" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+        <a-entity id="grass2" gltf-model="#grass-gltf" position="-50 80 23" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+        <a-entity id="grass3" gltf-model="#grass-gltf" position="0 80 70" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+        <a-entity id="grass4" gltf-model="#grass-gltf" position="50 80 70" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+        <a-entity id="grass5" gltf-model="#grass-gltf" position="-50 80 70" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
+
+
+        <a-entity id="stump" stump-interact="" gltf-model="#stump-gltf" position="0 85 15" scale="10 10 10" rotation="0 0 0"></a-entity>
+        <a-entity id="tree" gltf-model="#tree-gltf" position="0 85 0" scale="10 10 10" rotation="0 0 0"></a-entity>
+        <a-entity id="rabbit" gltf-model="#rabbit-gltf" position="0 85 4" scale=".1 .1 .1" rotation="0 180 0" 
+        animation="property: position;
+            from: -5 85 50;
+            to: 0 85 15;
+            dur: 8000;
+            delay: 2000;
+            loop: true;
+            autoplay: true">
+        </a-entity>
+       
+
+
+        <a-entity id="rig" position="0 100 60">
+            <a-camera look-controls cursor="rayOrigin: mouse"></a-camera>
+        </a-entity>
+    </a-scene>
+
+  </body>
+</html>
